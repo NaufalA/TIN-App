@@ -1,13 +1,20 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {HomeScreen, ProfilLulusanScreen} from './src/components';
+import {
+  FasilitasScreen,
+  HomeScreen,
+  ProfilLulusanScreen,
+  StrukturOrganisasiScreen,
+} from './src/components';
 import {Theme} from './src/styles';
 
 export type RootParamList = {
-  Home: {paramA?: string};
-  'Profil Lulusan': {paramA?: string};
+  Home: {};
+  ProfilLulusan: {};
+  Fasilitas: {};
+  StrukturOrganisasi: {};
 };
 
 const App = () => {
@@ -30,7 +37,17 @@ const App = () => {
             headerShown: false,
           }}
         />
-        <Stack.Screen name="Profil Lulusan" component={ProfilLulusanScreen} />
+        <Stack.Screen
+          name="ProfilLulusan"
+          component={ProfilLulusanScreen}
+          options={{headerTitle: 'Profil Lulusan'}}
+        />
+        <Stack.Screen name="Fasilitas" component={FasilitasScreen} />
+        <Stack.Screen
+          name="StrukturOrganisasi"
+          component={StrukturOrganisasiScreen}
+          options={{headerTitle: 'Struktur Organisasi'}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

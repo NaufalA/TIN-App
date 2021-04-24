@@ -12,6 +12,7 @@ import {
   IconDefinition,
 } from '@fortawesome/free-solid-svg-icons';
 import {useTheme} from '@react-navigation/native';
+import Section from './Section';
 import {Home} from '../styles';
 
 type Props = StackScreenProps<RootParamList, 'Home'>;
@@ -23,14 +24,7 @@ const Header = (): JSX.Element => (
   </View>
 );
 
-const Section: React.FC<{title: string}> = ({children, title}) => (
-  <View style={Home.section}>
-    <Text style={Home.sectionTitle}>{title}</Text>
-    {children}
-  </View>
-);
-
-const HomeScreen = ({navigation, route}: Props) => {
+const HomeScreen = ({navigation}: Props) => {
   const {colors} = useTheme();
 
   const pageData = {
@@ -69,10 +63,77 @@ const HomeScreen = ({navigation, route}: Props) => {
   return (
     <ScrollView style={{flex: 1}}>
       <Header />
-      <Text>{route.params?.paramA}</Text>
-      <Button
-        title="Profil Lulusan"
-        onPress={() => navigation.navigate('Profil Lulusan', {})}></Button>
+      <Text
+        style={{
+          fontSize: 24,
+          fontWeight: 'bold',
+          color: 'white',
+          backgroundColor: colors.primary,
+          textAlign: 'center',
+          padding: 10,
+        }}>
+        TERAKREDITASI B
+      </Text>
+      <View
+        style={{
+          flex: 1,
+          padding: 10,
+        }}>
+        <View style={{flex: 1, margin: 2}}>
+          <Button
+            color={colors.primary}
+            title="Fasilitas"
+            onPress={() => navigation.navigate('Fasilitas', {})}
+          />
+        </View>
+        <View style={{flex: 1, margin: 2}}>
+          <Button
+            color={colors.primary}
+            title="Struktur Organisasi"
+            onPress={() => navigation.navigate('StrukturOrganisasi', {})}
+          />
+        </View>
+        <View style={{flex: 1, margin: 2}}>
+          <Button
+            color={colors.primary}
+            title="Profil Lulusan"
+            onPress={() => navigation.navigate('ProfilLulusan', {})}
+          />
+        </View>
+      </View>
+      <Section title="TENTANG PRODI">
+        <Text style={{color: colors.text, padding: 10}}>
+          Pendirian Program Studi Teknologi Industri Pertanian Fakultas
+          Teknologi Industri Pertanian (FTIP) Unpad diarahkan untuk memberikan
+          solusi atas berbagai tantangan dalam pengembangan sistem pendidikan
+          tinggi agroindustri, serta memfasilitasi pengembangan agroindustri,
+          menitikberatkan pada pemberian nilai tambah bagi hasil pertanian,
+          menghasilkan produk agroindustri bermutu tinggi, dan pelayanan yang
+          terbaik kepada seluruh stakeholder. Sistem pendidikannya diarahkan
+          dalam bentuk proses pembelajaran dan penelitian yang terintegrasi
+          dalam kurikulum berbasis technopreneurship.
+        </Text>
+        <Text style={{color: colors.text, padding: 10}}>
+          Lebih lanjut Program Studi Teknologi Industri Pertanian FTIP Unpad
+          mengarahkan penelitiannya untuk menghasilkan produk-produk penelitian
+          dan pengembangan yang dapat berkontribusi dalam pembangunan
+          agroindustri dan IPTEK, serta secara aktif mengaplikasikan produk
+          penelitian dan temuan inovatif dalam aspek teknologi proses dan teknik
+          sistem agroindustri yang berwawasan lingkungan. Fokus kajian ilmiah
+          dikembangkan pada dua bidang yaitu Bidang Teknik dan Manajemen
+          Industri Pertanian termasuk lingkungannya, serta Bidang Teknik Proses
+          / Bioproses pada Industri Pertanian.
+        </Text>
+        <Text style={{color: colors.text, padding: 10}}>
+          Kurikulum berbasis technopreneurhip dirancang sangat menarik dengan
+          pendekatan entrepreneurial yang dikolaborasikan dengan penguasaan
+          teknologi untuk menghasilkan lulusan yang memiliki kompetensi dengan
+          daya saing yang tinggi baik dalam hal keahlian dan keterampilan,
+          tanggung jawab, serta motivasi untuk mengembangkan agroindustri,
+          termasuk dari segi manajemen. Lulusan program studi ini berhak
+          menyandang gelar Sarjana Teknik Pertanian (STP.).
+        </Text>
+      </Section>
       <Section title="VISI">
         <Text style={{textAlign: 'center', fontSize: 16, color: colors.text}}>
           Pada Tahun 2025 Menjadi Program Studi Yang Unggul Dalam Bidang
@@ -137,8 +198,10 @@ const HomeScreen = ({navigation, route}: Props) => {
       </Section>
       <Section title="SEJARAH">
         <Text style={{textAlign: 'center', fontSize: 14, color: colors.text}}>
-          Pada Tahun 2025 Menjadi Program Studi Yang Unggul Dalam Bidang
-          Agroindustri Untuk Kemandirian Bangsa
+          Program Studi Teknologi Industri Pertanian (Prodi TIN) merupakan Prodi
+          baru yang didirikan pada tahun 2013 dan menerima mahasiswa baru pada
+          tahun 2014. Prodi TIN UNPAD telah membulatkan tekad untuk berkomitmen
+          dalam mengembangkan kurikulum yang berbasis pada technopreneurship
         </Text>
       </Section>
       <View style={{backgroundColor: '#2a333f', padding: 30}}>
