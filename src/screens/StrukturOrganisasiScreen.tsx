@@ -1,11 +1,12 @@
 import React from 'react';
 import {ScrollView, View} from 'react-native';
-import {Section, StaffCard} from '../components';
+import {Header, Section, StaffCard} from '../components';
 import {StaffData as staff} from '../utils';
 
 const StrukturOrganisasiScreen = () => {
   return (
     <ScrollView>
+      <Header bgUrl={require('../assets/image/staf-all-tin.jpg')} />
       <Section title="Pimpinan Prodi">
         <View style={{flex: 1, flexDirection: 'row'}}>
           {staff.pimpinanProdi.map((item, index) => (

@@ -53,7 +53,11 @@ const HomeScreen = ({navigation}: Props) => {
 
   return (
     <ScrollView style={{flex: 1}}>
-      <Header />
+      <Header
+        bgUrl={require('../assets/image/aerial-blur-bright-buildings.jpg')}
+        title="PROGRAM STUDI"
+        subtitle="TEKNIK INDUSTRI PERTANIAN"
+      />
       <Text
         style={{
           fontSize: 24,

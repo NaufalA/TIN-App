@@ -11,18 +11,34 @@ const KurikulumScreen = () => {
       style={{flex: 1}}
       sections={kurikulum}
       keyExtractor={(item, index) => `${item.subject}-${index}`}
-      renderSectionHeader={({section: {title, pilihan}}) => (
+      renderSectionHeader={({section: {title, totalSks, pilihan}}) => (
         <View>
-          <Text
+          <View
             style={{
-              paddingVertical: 15,
+              paddingVertical: 10,
               paddingHorizontal: 20,
               backgroundColor: colors.primary,
-              color: 'white',
-              fontSize: 16,
+              flex: 1,
+              flexDirection: 'row',
+              justifyContent: 'space-between',
             }}>
-            {title}
-          </Text>
+            <Text
+              style={{
+                color: 'white',
+                fontSize: 16,
+                fontWeight: 'bold',
+              }}>
+              {title}
+            </Text>
+            {totalSks && (
+              <Text
+                style={{
+                  color: 'white',
+                  fontSize: 16,
+                  fontWeight: 'bold',
+                }}>{`${totalSks} SKS`}</Text>
+            )}
+          </View>
           <View
             style={{
               paddingVertical: 10,
@@ -45,9 +61,12 @@ const KurikulumScreen = () => {
               }}>
               Wajib/Pilihan
             </Text>
-            <Text style={{flex: 1, color: colors.primary}}>SKS</Text>
+            <Text style={{flex: 1, color: colors.primary, textAlign: 'right'}}>
+              SKS
+            </Text>
             {pilihan === true && (
-              <Text style={{flex: 2, color: colors.primary}}>
+              <Text
+                style={{flex: 2, color: colors.primary, textAlign: 'right'}}>
                 Bidang Kajian
               </Text>
             )}
@@ -64,8 +83,10 @@ const KurikulumScreen = () => {
           }}>
           <Text style={{flex: 3, marginRight: 5}}>{item.subject}</Text>
           <Text style={{flex: 1}}>{item.status}</Text>
-          <Text style={{flex: 1}}>{item.sks}</Text>
-          {item.bidang && <Text style={{flex: 2}}>{item.bidang}</Text>}
+          <Text style={{flex: 1, textAlign: 'right'}}>{item.sks}</Text>
+          {item.bidang && (
+            <Text style={{flex: 2, textAlign: 'right'}}>{item.bidang}</Text>
+          )}
         </View>
       )}
     />
