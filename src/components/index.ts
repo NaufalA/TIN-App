@@ -1,4 +1,4 @@
-export {default as HomeScreen} from './HomeScreen';
-export {default as ProfilLulusanScreen} from './ProfilLulusanScreen';
-export {default as FasilitasScreen} from './FasilitasScreen';
-export {default as StrukturOrganisasiScreen} from './StrukturOrganisasiScreen';
+export {default as Section} from './Section';
+export {default as Nav} from './Nav';
+export {default as StaffCard} from './StaffCard';
+export {default as Header} from './Header';

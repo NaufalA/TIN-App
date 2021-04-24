@@ -7,15 +7,10 @@ import {
   Button,
   Linking,
 } from 'react-native';
-import {Theme} from '../styles';
+import {Staff} from '../utils';
+import {Theme} from '../assets/styles';
 
-const StaffCard = (props: {
-  title?: string;
-  imgUrl: ImageSourcePropType;
-  name: string;
-  scholarUrl?: string;
-  sintaUrl?: string;
-}) => {
+const StaffCard = (props: Staff): JSX.Element => {
   const openURL = (url: string) => {
     Linking.openURL(url).catch(err => console.error('An error occurred', err));
   };

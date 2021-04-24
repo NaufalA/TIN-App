@@ -7,14 +7,16 @@ import {
   HomeScreen,
   ProfilLulusanScreen,
   StrukturOrganisasiScreen,
-} from './src/components';
-import {Theme} from './src/styles';
+  KurikulumScreen,
+} from './src/screens';
+import {Theme} from './src/assets/styles';
 
 export type RootParamList = {
   Home: {};
   ProfilLulusan: {};
   Fasilitas: {};
   StrukturOrganisasi: {};
+  Kurikulum: {};
 };
 
 const App = () => {
@@ -46,8 +48,9 @@ const App = () => {
         <Stack.Screen
           name="StrukturOrganisasi"
           component={StrukturOrganisasiScreen}
-          options={{headerTitle: 'Struktur Organisasi'}}
+          options={{headerTitle: 'Pejabat dan Staff Prodi'}}
         />
+        <Stack.Screen name="Kurikulum" component={KurikulumScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

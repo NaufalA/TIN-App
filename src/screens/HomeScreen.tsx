@@ -1,6 +1,6 @@
 import {StackScreenProps} from '@react-navigation/stack';
 import React from 'react';
-import {View, Text, Button, FlatList} from 'react-native';
+import {View, Text, Button} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {RootParamList} from '../../App';
@@ -9,20 +9,11 @@ import {
   faFlask,
   faUsers,
   faMapMarked,
-  IconDefinition,
 } from '@fortawesome/free-solid-svg-icons';
 import {useTheme} from '@react-navigation/native';
-import Section from './Section';
-import {Home} from '../styles';
+import {Section, Header} from '../components';
 
 type Props = StackScreenProps<RootParamList, 'Home'>;
-
-const Header = (): JSX.Element => (
-  <View style={Home.header}>
-    <Text style={Home.headerText}>Program Studi</Text>
-    <Text style={Home.headerText}>Teknologi Industri Pertanian</Text>
-  </View>
-);
 
 const HomeScreen = ({navigation}: Props) => {
   const {colors} = useTheme();
@@ -82,6 +73,13 @@ const HomeScreen = ({navigation}: Props) => {
         <View style={{flex: 1, margin: 2}}>
           <Button
             color={colors.primary}
+            title="Kurikulum"
+            onPress={() => navigation.navigate('Kurikulum', {})}
+          />
+        </View>
+        <View style={{flex: 1, margin: 2}}>
+          <Button
+            color={colors.primary}
             title="Fasilitas"
             onPress={() => navigation.navigate('Fasilitas', {})}
           />
@@ -89,7 +87,7 @@ const HomeScreen = ({navigation}: Props) => {
         <View style={{flex: 1, margin: 2}}>
           <Button
             color={colors.primary}
-            title="Struktur Organisasi"
+            title="Pejabat dan Staff Prodi"
             onPress={() => navigation.navigate('StrukturOrganisasi', {})}
           />
         </View>
