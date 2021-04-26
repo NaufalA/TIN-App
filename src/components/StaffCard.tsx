@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  Image,
-  ImageSourcePropType,
-  Button,
-  Linking,
-} from 'react-native';
+import {View, Text, Image, Button, Linking} from 'react-native';
 import {Staff} from '../utils';
 import {Theme} from '../assets/styles';
 
